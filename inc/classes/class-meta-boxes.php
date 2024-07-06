@@ -25,6 +25,7 @@ class Meta_Boxes
         * Actions.
         */
         add_action('add_meta_boxes', [$this, 'add_custom_meta_box']);
+        add_action('save_post', [$this, 'save_post_meta_data']);
     }
 
     public function add_custom_meta_box($post)
@@ -47,11 +48,22 @@ class Meta_Boxes
 
         ?>
         <label for="spawordpress-field"><?php esc_html_e('Hide the page title', 'spawordpress'); ?></label>
-        <select id="spawordpress-field" class="postbox" name="spawordpress_field">
+        <select id="spawordpress-field" class="postbox" name="spawordpress_hide_title_field">
             <option value=""><?php esc_html_e('Select', 'spawordpress') ?></option>
             <option value="yes" <?php selected($value, 'yes'); ?>><?php esc_html_e('Yes', 'spawordpress'); ?></option>
             <option value="no" <?php selected($value, 'no'); ?>><?php esc_html_e('No', 'spawordpress'); ?></option>
         </select>
         <?php
+    }
+
+    public function save_post_meta_data($post_id)
+    {
+        if (array_key_exists('spawordpress_hide_title_field', $_POST)) {
+            update_post_meta(
+                $post_id,
+                '_hide_page_title',
+                $_POST['spawordpress_hide_title_field']
+            );
+        }
     }
 }
