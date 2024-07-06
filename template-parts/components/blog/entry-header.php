@@ -11,7 +11,7 @@ $heading_class = !empty($hide_title) && 'yes' === $hide_title ? 'hidden' : '';
 $has_post_thumbnail = get_the_post_thumbnail();
 ?>
 
-<header class="w-full h-56">
+<header class="w-full">
     <?php if ($has_post_thumbnail): ?>
             <a href="<?=esc_url(get_permalink())?>">
             <?php the_post_custom_thumbnail(
@@ -19,7 +19,7 @@ $has_post_thumbnail = get_the_post_thumbnail();
                 'featured-thumbnail',
                 [
                     'sizes' => '(max-width: 350px) 350px, 233px',
-                    'class' => 'w-full object-cover h-full'
+                    'class' => 'w-full object-cover h-36'
                 ]
             ); ?>
             </a>
@@ -34,7 +34,7 @@ $has_post_thumbnail = get_the_post_thumbnail();
         );
     } else {
         printf(
-            '<h2 class="text-xl mb-8 font-extrabold"><a class="hover:underline" href="%1$s">%2$s</a></h2>',
+            '<h2 class="text-xl font-extrabold"><a class="hover:underline" href="%1$s">%2$s</a></h2>',
             esc_url(get_the_permalink()),
             wp_kses_post(get_the_title())
         );
