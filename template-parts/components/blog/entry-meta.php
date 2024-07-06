@@ -7,5 +7,8 @@
 ?>
 
 <div class="entry-meta mb-3">
-    <?php spawordpress_posted_on(); ?>
+    <?php
+        spawordpress_posted_on();
+        spawordpress_posted_by();
+    ?>
 </div>
