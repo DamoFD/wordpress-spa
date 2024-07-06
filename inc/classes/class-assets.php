@@ -42,9 +42,10 @@ class Assets
     public function register_scripts()
     {
         // Register scripts
-        wp_register_script('main-js', SPAWORDPRESS_DIR_URI . '/assets/main.js', [], filemtime(SPAWORDPRESS_DIR_PATH . '/assets/main.js'), true);
+        wp_register_script('main-js', SPAWORDPRESS_DIR_URI . '/assets/main.js', ['jquery'], filemtime(SPAWORDPRESS_DIR_PATH . '/assets/main.js'), true);
 
         // Enqueue scripts
         wp_enqueue_script('main-js');
+        wp_enqueue_script('jquery');
     }
 }

@@ -25,6 +25,7 @@ class Sidebars
         * Actions.
         */
         add_action('widgets_init', [$this, 'register_sidebars']);
+        add_action('widgets_init', [$this, 'register_clock_widget']);
     }
 
     public function register_sidebars()
@@ -48,5 +49,10 @@ class Sidebars
             'before_title' => '<h3 class="widget-title">',
             'after_title' => '</h3>',
         ]);
+    }
+
+    public function register_clock_widget()
+    {
+        register_widget('SPAWORDPRESS_THEME\Inc\Clock_Widget');
     }
 }
