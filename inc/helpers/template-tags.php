@@ -87,3 +87,22 @@ function spawordpress_excerpt_more($more = '') {
 
     return $more;
 }
+
+function spawordpress_pagination() {
+    $allowed_tags = [
+        'span' => [
+            'class' => []
+        ],
+        'a' => [
+            'class' => [],
+            'href' => [],
+        ],
+    ];
+
+    $args = [
+        'before_page_number' => '<span class="border px-2 py-1 rounded-md">',
+        'after_page_number' => '</span>',
+    ];
+
+    printf('<nav class="spawordpress-pagination">%s</nav>', wp_kses(paginate_links($args), $allowed_tags));
+}
