@@ -26,6 +26,7 @@
             );
         } else {
             spawordpress_the_excerpt(50);
+            echo spawordpress_excerpt_more();
         }
     ?>
 </div>

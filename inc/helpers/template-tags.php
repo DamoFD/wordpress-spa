@@ -76,3 +76,14 @@ function spawordpress_the_excerpt($trim_character_count = 0) {
 
     echo $excerpt . '[...]';
 }
+
+function spawordpress_excerpt_more($more = '') {
+    if (!is_single()) {
+        $more = sprintf('<button class="bg-teal-500 rounded-md px-2 py-1 text-white block my-4"><a href="%1$s">%2$s</a></button>',
+            get_permalink(get_the_ID()),
+            __('Read more', 'spawordpress')
+        );
+    }
+
+    return $more;
+}
