@@ -28,5 +28,12 @@
             spawordpress_the_excerpt(50);
             echo spawordpress_excerpt_more();
         }
+
+        wp_link_pages(
+            [
+                'before' => '<div>' . esc_html__( 'Pages:', 'spawordpress' ),
+                'after' => '</div>',
+            ]
+        );
     ?>
 </div>
