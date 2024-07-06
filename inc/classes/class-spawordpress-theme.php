@@ -19,6 +19,7 @@ class SPAWORDPRESS_THEME
 
         Assets::get_instance();
         Menus::get_instance();
+        Meta_Boxes::get_instance();
 
         $this->setup_hooks();
     }
@@ -50,6 +51,11 @@ class SPAWORDPRESS_THEME
         ]);
 
         add_theme_support('post-thumbnails');
+
+        /**
+        * Register image sizes.
+        */
+        add_image_size('featured-thumbnail', 350, 233, true);
 
         add_theme_support('customize-selective-refresh-widgets');
 

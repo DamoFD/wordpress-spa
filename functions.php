@@ -14,6 +14,7 @@ if (!defined('SPAWORDPRESS_DIR_URI')) {
 }
 
 require_once SPAWORDPRESS_DIR_PATH . '/inc/helpers/autoloader.php';
+require_once SPAWORDPRESS_DIR_PATH . '/inc/helpers/template-tags.php';
 
 function spawordpress_get_theme_instance() {
     \SPAWORDPRESS_THEME\Inc\SPAWORDPRESS_THEME::get_instance();
