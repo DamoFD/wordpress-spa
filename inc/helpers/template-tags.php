@@ -106,3 +106,24 @@ function spawordpress_pagination() {
 
     printf('<nav class="spawordpress-pagination">%s</nav>', wp_kses(paginate_links($args), $allowed_tags));
 }
+
+function spawordpress_is_bot() {
+    $bot_agents = [
+        'Googlebot', 'Bingbot', 'Slurp', 'DuckDuckBot', 'Baiduspider', 'YandexBot',
+        'Sogou', 'Exabot', 'facebot', 'ia_archiver', 'AhrefsBot', 'MJ12bot',
+        'SemrushBot', 'DotBot', 'SeznamBot', 'PiplBot', 'Mail.RU_Bot', 'SiteExplorer',
+        'Screaming Frog', 'LinkpadBot', 'SerpstatBot', 'MegaIndex', 'BLEXBot',
+        'Uptimebot', 'TurnitinBot', 'trendictionbot', 'VoilaBot', 'CommonCrawler',
+        'Lipperhey', 'Hatena', 'MegaIndex', 'WBSearchBot', 'ZoominfoBot', 'SentiBot'
+    ];
+
+    $user_agent = $_SERVER['HTTP_USER_AGENT'] ?? '';
+
+    foreach ($bot_agents as $bot_agent) {
+        if (stripos($user_agent, $bot_agent) !== false) {
+            return true;
+        }
+    }
+
+    return false;
+}

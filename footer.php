@@ -6,6 +6,8 @@
 */
 ?>
 
+</div>
+</div>
 <footer>
     <h3>Footer</h3>
     <?php if (is_active_sidebar('sidebar-2')): ?>

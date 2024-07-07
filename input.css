@@ -18,3 +18,23 @@ Use it to make something cool, have fun, and share what you've learned with othe
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.htmx-indicator {
+    opacity: 0;
+}
+
+.htmx-request .htmx-indicator {
+    opacity: 1;
+}
+
+.htmx-request.htmx-indicator {
+    opacity: 1;
+}
+
+.htmx-request .site-content {
+    opacity: 0;
+}
+
+.htmx-request.site-content {
+    opacity: 0;
+}

@@ -4,7 +4,9 @@
 * @package spawordpress
 */
 
-get_header();
+if (!isset($_SERVER['HTTP_HX_REQUEST'])) {
+    get_header();
+}
 
 ?>
 
@@ -28,4 +30,6 @@ get_header();
 </div>
 
 <?php
-get_footer();
+if (!isset($_SERVER['HTTP_HX_REQUEST'])) {
+    get_footer();
+}

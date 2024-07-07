@@ -16,7 +16,22 @@ $header_menus = wp_get_nav_menu_items($header_menu_id);
       <div class="flex items-center flex-shrink-0 text-white mr-6 space-x-2">
             <div class="w-10">
                 <?php if (function_exists('the_custom_logo')) {
-                    the_custom_logo();
+                    $custom_logo_id = get_theme_mod('custom_logo');
+                    $logo = wp_get_attachment_image_src($custom_logo_id, 'full');
+
+                    if (has_custom_logo()){
+                        // Conditionally add hx-get attribute
+                        $hx_get_attr = !spawordpress_is_bot() ? 'hx-get="%1$s" hx-push-url="true"' : '';
+                        // Modify the logo HTML
+                        $html = sprintf(
+                            '<a href="%1$s" ' . $hx_get_attr . ' class="custom-logo-link cursor-pointer" rel="home"><img src="%2$s" class="custom-logo" alt="%3$s" width="100" height="100" /></a>',
+                            esc_url(home_url('/')),
+                            esc_url($logo[0]),
+                            esc_attr(get_bloginfo('name'))
+                        );
+
+                        echo $html;
+                    }
                 }
                 ?>
             </div>
@@ -39,7 +54,14 @@ $header_menus = wp_get_nav_menu_items($header_menu_id);
                         $has_children = !empty($child_menu_items) && is_array($child_menu_items);
                     ?>
                     <?php if (!$has_children): ?>
-                        <a href="<?=esc_url( $menu_item->url )?>" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                        <a
+                            href="<?=esc_url( $menu_item->url )?>"
+                            <?php if (!spawordpress_is_bot()): ?>
+                                hx-get="<?php echo esc_url($menu_item->url)?>"
+                                hx-push-url="true"
+                            <?php endif; ?>
+                            class="cursor-pointer block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+                        >
                             <?=esc_html($menu_item->title)?>
                         </a>
                     <?php else: ?>

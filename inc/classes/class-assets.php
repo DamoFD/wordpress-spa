@@ -42,10 +42,9 @@ class Assets
     public function register_scripts()
     {
         // Register scripts
-        wp_register_script('main-js', SPAWORDPRESS_DIR_URI . '/assets/main.js', ['jquery'], filemtime(SPAWORDPRESS_DIR_PATH . '/assets/main.js'), true);
+        wp_register_script('htmx', 'https://unpkg.com/htmx.org@2.0.0', [], null, true);
 
         // Enqueue scripts
-        wp_enqueue_script('main-js');
-        wp_enqueue_script('jquery');
+        wp_enqueue_script('htmx');
     }
 }

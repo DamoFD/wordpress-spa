@@ -5,9 +5,14 @@
 * @package spawordpress
 */
 
-get_header();
+if (!isset($_SERVER['HTTP_HX_REQUEST'])) {
+    get_header();
+}
 ?>
 
 <div>Front Page</div>
 
-<?php get_footer(); ?>
+<?php
+if (!isset($_SERVER['HTTP_HX_REQUEST'])) {
+    get_footer();
+}
