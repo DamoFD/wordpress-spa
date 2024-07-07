@@ -21,7 +21,7 @@
         }
         ?>
 
-        <div id="page" class="site relative min-h-screen w-full" hx-indicator="#content" hx-target=".site-content" hx-swap="innerHTML show:window:top">
+        <div id="page" class="site relative min-h-screen w-full bg-off-white" hx-indicator="#content" hx-target=".site-content" hx-swap="innerHTML show:window:top">
             <header id="masthead" class="site-header" role="banner">
                 <?php get_template_part( 'template-parts/header/nav' ); ?>
             </header>

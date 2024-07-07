@@ -11,6 +11,9 @@
 <div class="entry-content">
     <?php
         if (is_single()) {
+    ?>
+        <div class="single-content flex flex-col space-y-4">
+    <?php
             the_content(
                 sprintf(
                     wp_kses(
@@ -24,8 +27,11 @@
                     the_title('<span>"', '"</span>', false)
                 )
             );
+        ?>
+        </div>
+    <?php
         } else {
-            spawordpress_the_excerpt(50);
+            spawordpress_the_excerpt(200);
             echo spawordpress_excerpt_more();
         }
 

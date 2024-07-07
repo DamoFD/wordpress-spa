@@ -11,9 +11,9 @@ if (!isset($_SERVER['HTTP_HX_REQUEST'])) {
 ?>
 
 <div id="primary">
-    <main id="main" class="max-w-7xl mx-auto mt-5" role="main">
+    <main id="main" class="px-6 mt-5" role="main">
         <?php if (is_home() && !is_front_page()): ?>
-            <h1 class="text-3xl font-extrabold mb-8"><?php single_post_title(); ?></h1>
+            <h1 class="text-3xl font-bold mb-8 text-brand-primary"><?php single_post_title(); ?></h1>
         <?php endif; ?>
         <?php if (have_posts()): ?>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

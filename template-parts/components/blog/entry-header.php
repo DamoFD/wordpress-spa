@@ -26,7 +26,7 @@ $has_post_thumbnail = get_the_post_thumbnail();
                     'featured-thumbnail',
                     [
                         'sizes' => '(max-width: 350px) 350px, 233px',
-                        'class' => 'w-full object-cover h-36'
+                        'class' => 'w-full object-cover h-36 rounded-t-lg'
                     ]
                 ); ?>
             </a>
@@ -35,14 +35,14 @@ $has_post_thumbnail = get_the_post_thumbnail();
     <!-- Title -->
     <?php if (is_single() || is_page()) {
         printf(
-            '<h1 class="text-3xl font-extrabold %1$s">%2$s</h1>',
+            '<h1 class="text-3xl px-4 mt-4 font-bold text-brand-primary %1$s">%2$s</h1>',
             esc_attr($heading_class),
             wp_kses_post(get_the_title())
         );
     } else {
         $hx_get_attr = !spawordpress_is_bot() ? 'hx-get="%1$s" hx-push-url="true"' : '';
         printf(
-            '<h2 class="text-xl font-extrabold"><a class="hover:underline" href="%1$s" ' . $hx_get_attr . '>%2$s</a></h2>',
+            '<h2 class="text-xl px-4 mt-4 font-bold text-brand-primary"><a class="hover:underline" href="%1$s" ' . $hx_get_attr . '>%2$s</a></h2>',
             esc_url(get_the_permalink()),
             wp_kses_post(get_the_title())
         );

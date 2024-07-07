@@ -18,8 +18,15 @@ if (empty($article_terms) && !is_array($article_terms)) {
 
 <div class="my-4">
     <?php foreach($article_terms as $key => $article_term): ?>
-        <button class="border rounded-md px-2 py-1">
-            <a class="hover:underline" href="<?php echo esc_url(get_term_link($article_term)); ?>">
+        <button class="border border-brand-secondary rounded-lg px-2 py-1 text-brand-secondary">
+            <a
+                class="hover:underline"
+                href="<?php echo esc_url(get_term_link($article_term)); ?>"
+                <?php if (!spawordpress_is_bot()): ?>
+                    hx-get="<?php echo esc_url(get_term_link($article_term)); ?>"
+                    hx-push-url="true"
+                <?php endif; ?>
+            >
                 <?php echo esc_html($article_term->name); ?>
             </a>
         </button>

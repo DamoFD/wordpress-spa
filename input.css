@@ -38,3 +38,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 .htmx-request.site-content {
     opacity: 0;
 }
+
+.entry-content h2 {
+    @apply text-brand-primary text-xl font-bold;
+}
